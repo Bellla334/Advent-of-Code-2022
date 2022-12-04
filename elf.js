@@ -2254,6 +2254,7 @@ const elfData = `6758
 2180
 4254`;
 
+//Part 1
 let elfDataArray = elfData.split('\n\n'); //makes an array where each element = 1 'chunk'
 
 for (let i = 0; i < elfDataArray.length; i++) { //i starts at 0, and as long as i is less than the length of elfDataArray array. increase i by 1 every time this runs
@@ -2268,4 +2269,7 @@ for (let i = 0; i < elfDataArray.length; i++) { //i starts at 0, and as long as 
 } 
  console.log(Math.max.apply(null, elfDataArray)); //GETS THE ANSWER YEEEEHAW LESSGO SPAGHETTIOS
 
+//Part 2
+elfDataArray = elfDataArray.sort().reverse();
+console.log(elfDataArray[0] + elfDataArray[1] + elfDataArray[2]);
 
