@@ -320,22 +320,22 @@ for (let i = 0; i < myArray.length; i++) { //Targets all the data line by line
     let partTwo = x.slice(x.length / 2, x.length) //Second half of data array
 
     //Turns the arrays into sets
-    let oneArray = new Set(partOne.split('')); 
+    let oneArray = new Set(partOne.split(''));
     let twoArray = new Set(partTwo.split(''));
 
     //Calls the function created above; returns the common char as a set
-    let val = getIntersection(oneArray, twoArray); 
+    let val = getIntersection(oneArray, twoArray);
 
     //Turns the resulting set (containing only the common char) back into an array
-    val = Array.from(val); 
+    val = Array.from(val);
 
     val = val[0]; //Targets the first (and only) character in the array
     score = val.charCodeAt([0]); //Turns this character into ASCII code
 
     if ((score > 96) && (score < 123)) { //If the code corresponds to lowercase letter, - 96 from it to = the priority value
-        finalScore += (score-96);
+        finalScore += (score - 96);
     } else if ((score > 64) && (score < 91)) { //Same but for uppercase letter
-        finalScore += (score-38);
+        finalScore += (score - 38);
     }
 }
 console.log(finalScore);
@@ -344,29 +344,29 @@ console.log(finalScore);
 //Part 2
 
 //Resets these variables to be reused 
-score = 0; 
+score = 0;
 finalScore = 0;
 
-for (let i = 0; i < myArray.length; i+=3) { //Adds 3 to i every time the loop iterates, to process 3 lines at a time without repeats
-//Creates one new set per line
-    let lineOne = new Set(myArray[i]); 
-    let lineTwo = new Set(myArray[i+1]);
-    let lineThree = new Set(myArray[i+2]);
+for (let i = 0; i < myArray.length; i += 3) { //Adds 3 to i every time the loop iterates, to process 3 lines at a time without repeats
+    //Creates one new set per line
+    let lineOne = new Set(myArray[i]);
+    let lineTwo = new Set(myArray[i + 1]);
+    let lineThree = new Set(myArray[i + 2]);
 
     //Finds the common char between all three sets, returns the answer as a set
-    let val1 = getIntersection(lineOne, lineTwo); 
+    let val1 = getIntersection(lineOne, lineTwo);
     let val2 = getIntersection(val1, lineThree);
 
     //Turns the resulting set (containing only the common char) back into an array
-    val = Array.from(val2); 
+    val = Array.from(val2);
 
     val = val[0]; //Targets the first (and only) character in the array
     score = val.charCodeAt([0]); //Turns this character into ASCII code
 
     if ((score > 96) && (score < 123)) { //If the code corresponds to lowercase letter, - 96 from it to = the priority value
-        finalScore += (score-96);
+        finalScore += (score - 96);
     } else if ((score > 64) && (score < 91)) { //Same but for uppercase letter
-        finalScore += (score-38);
+        finalScore += (score - 38);
     }
 }
 console.log(finalScore);
