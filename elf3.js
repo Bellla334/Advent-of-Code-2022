@@ -300,144 +300,42 @@ rcrvjpSvScbRbBvbDBPG
 ZZJzSHpzPrJzHFmMVMFmHCLNtV`;
 
 
+//Part 1
 let myArray = rucksackData.split(`\n`);
-console.log(myArray[0]);
 
-function getIntersection(setA, setB) {
+function getIntersection(setA, setB) { //A function to find the common character between two sets
     const intersection = new Set(
         [...setA].filter(element => setB.has(element))
     );
 
     return intersection;
 }
-// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26]
-// let u = 1;
-//  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] = [u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++, u++];
-//  console.log(c);
 
 let score = 0;
+let finalScore = 0;
 
-for (let i = 0; i < myArray.length; i++) {
-    let x = myArray[i];
-    let partOne = x.slice(0, x.length / 2)
-    let partTwo = x.slice(x.length / 2, x.length)
+for (let i = 0; i < myArray.length; i++) { //targets all the data line by line
+    let x = myArray[i]; //targets the data on whichever line we are up to
+    let partOne = x.slice(0, x.length / 2) //creates an array of the first half of the data on this line 
+    let partTwo = x.slice(x.length / 2, x.length) //second half of data array
 
-    let newArray = [partOne, partTwo];
-    // console.log({ i, newArray});
-
-    let oneArray = new Set(partOne.split(''));
+    //turns the arrays into sets
+    let oneArray = new Set(partOne.split('')); 
     let twoArray = new Set(partTwo.split(''));
-    // console.log({ i, oneArray, twoArray});
 
-    let value = getIntersection(oneArray, twoArray);
-    // console.log({i, value});
+    //calls the function created above; returns the common char
+    let val = getIntersection(oneArray, twoArray); 
 
-    console.log(value);
+    //turns the resulting set (containing only the common char) back into an array
+    val = Array.from(val); 
 
-    // switch (value) {
-    //     case a:
-    //         score = score + 1;
-    //         break;
-    //     case 1:
-    //         value = 'b';
-    //         score = score + 2;
-    //         break;
-    //     case 2:
-    //         value = 'c';
-    //         score = score + 3;
-    //         break;
-    //     case 3:
-    //         value = 'd';
-    //         score = score + 4;
-    //         break;
-    //     case 4:
-    //         value = 'e';
-    //         score = score + 5;
-    //         break;
-    //     case 5:
-    //         value = 'f';
-    //         score = score + 6;
-    //         break;
-    //     case 6:
-    //         value = 'g';
-    //         score = score + 7;
-    //         break;
-    //     case 7:
-    //         value = 'h';
-    //         score = score + 8;
-    //         break;
-    //     case 8:
-    //         value = 'i';
-    //         score = score + 9;
-    //         break;
-    //     case 9:
-    //         value = 'j';
-    //         score = score + 10;
-    //         break;
-    //     case 10:
-    //         value = 'k';
-    //         score = score + 11;
-    //         break;
-    //     case 11:
-    //         value = 'l';
-    //         score = score + 12;
-    //         break;
-    //     case 12:
-    //         value = 'm';
-    //         score = score + 13;
-    //         break;
-    //     case 13:
-    //         value = 'n';
-    //         score = score + 14;
-    //         break;
-    //     case 14:
-    //         value = 'o';
-    //         score = score + 15;
-    //         break;
-    //     case 15:
-    //         value = 'p';
-    //         score = score + 16;
-    //         break;
-    //     case 16:
-    //         value = 'q';
-    //         score = score + 17;
-    //         break;
-    //     case 17:
-    //         value = 'r';
-    //         score = score + 18;
-    //         break;
-    //     case 18:
-    //         value = 's';
-    //         score = score + 19;
-    //         break;
-    //     case 19:
-    //         value = 't';
-    //         score = score + 20;
-    //         break;
-    //     case 20:
-    //         value = 'u';
-    //         score = score + 21;
-    //         break;
-    //     case 21:
-    //         value = 'v';
-    //         score = score + 22;
-    //         break;
-    //     case 22:
-    //         value = 'w';
-    //         score = score + 23;
-    //         break;
-    //     case 23:
-    //         value = 'x';
-    //         score = score + 24;
-    //         break;
-    //     case 24:
-    //         value = 'y';
-    //         score = score + 25;
-    //         break;
-    //     case 25:
-    //         value = 'z';
-    //         score = score + 26;
-    //         break;
-    // }
+    val = val[0]; //targets the first (and only) character in the array
+    score = val.charCodeAt([0]); //turns this character into ASCII code
+
+    if ((score > 96) && (score < 123)) { //if the code corresponds to lowercase letter, - 96 from it to = the priority value
+        finalScore += (score-96);
+    } else if ((score > 64) && (score < 91)) { //same but for uppercase letter
+        finalScore += (score-38);
+    }
 }
-console.log(score);
+console.log(finalScore);
