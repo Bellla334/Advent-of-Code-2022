@@ -853,14 +853,3 @@ console.log('7: ' + stack7);
 console.log('8: ' + stack8);
 console.log('9: ' + stack9);
 
-// bella is a dumb dumb dumb dumb dumb dumb dumb
-// bella bella bella bella bella
-// hiiiiiiiiiiiiiiiiiiii
-// hehehhehehehehehehhee
-// blekkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-// bear is cuter than bodie
-// sah tah men sah tah men sah tah men
-// hungry fish
-// kill fish
-// cat head eagle
-// luse de gui
